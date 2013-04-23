@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<title>Clinicogenomics: Nick Loman's Lab Page</title>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="jquery.browser.js"></script>
+		<script src="jquery.jfeed.pack.js"></script>
+		<script src="publicationList.js"></script>
+
+		<script>
+function update_feed(feed, path) {
+   var html = '';
+   for(var i = 0; i < feed.items.length && i < 10; i++) {
+       var item = feed.items[i];
+       html += '<h3>'
+            + '<a href="'
+            + item.link
+            + '">'
+            + item.title
+            + '</a>'
+            + '</h3>';
+   }
+            
+   jQuery(path).append(html);
+}
+
+$(document).ready(function() {
+	jQuery.getFeed({ url: '/blog/feed', success:
+		function(feed) {
+            		update_feed(feed, '#blogposts');
+		}
+	});
+});
+		</script>
+
+		<style type="text/css">
+			body {
+				margin:20px 100px; padding:0px;
+			}
+			h1, h2, h3, h4, p, div, li {
+				font-family: "Lucida Console",Monaco,"Nimbus Mono L",monospace;
+			}
+			h1 {
+				font-size: xx-large;
+			}
+			h2 {
+				font-size: x-large;
+			}
+			p, div, li {
+				font-family: "Lucida Console",Monaco,"Nimbus Mono L",monospace;
+			}
+		</style>
+	</head>
+	<body class="withmargin">
+		<h1>Clinicogenomics: Nick Loman's Lab Page</h1>
+
+		<h2>Introduction</h2>
+
+<p>Nick works as an Independent Research Fellow in the <a href="http://www.birmingham.ac.uk/research/activity/microbiology-infection/index.aspx">Institute for Microbiology and Infection</a> at the <a href="http://www.birmingham.ac.uk">University of Birmingham</a>, sponsored by an MRC Special Training Fellowship in Biomedical Informatics. His research explores the use of cutting-edge genomics and metagenomics approaches to the diagnosis, treatment and surveillance of infectious disease. Nick has so far used high-throughput sequencing to investigate outbreaks of important Gram-negative multi-drug resistant pathogens such as <em>Pseudomonas aeruginosa</em>, <em>Acinetobacter baumannii</em> and Shiga-toxin producing <em>Escherichia coli</em>. His current work focuses on the genetic diversity of <em>Pseudomonas aeruginosa infection</em> in chronic lung diseases such as cystic fibrosis as a diagnostic and prognostic marker.  A more general aim is to develop bioinformatics tools to aid the interpretation of genome and metagenome-scale data in routine clinical practice in collaboration with mentor <a href="http://userweb.eng.gla.ac.uk/christopher.quince/">Chris Quince</a> at the University of Glasgow.</p>
+
+		<h2>Group</h2>
+
+<p>With Tim Mitchell, I co-supervise a PhD student, Josh Quick. Josh is investigating the role of microbial communities in wound healing in burns and trauma through the <a href="http://www.nihr.ac.uk/research/Pages/CentreforSurgicalReconstructionandMicrobiology.aspx">NIHR Centre for Surgical Reconstruction and Microbiology</a>, as well as the spread of nosocomial pathogens in our local patient popluation. An MRes student, Jelena Sostare, is working on optimised protocols for bacterial genome finishing using the Nextera system for the Illumina MiSeq.
+
+		<h2>Publications</h2>
+		<ul id="pubmenu">
+			<li><a href="selected" id="section_selected_click" class="section_click">Selected publications</a>
+			<li><a href="firstauthor" class="section_click">First author / joint first-author publications</a>
+			<li><a href="reviews" class="section_click">Review articles</a>
+			<li><a href="all" class="section_click">All publications</a>
+		</ul>
+
+		<div class="section_text" id="section_selected">
+			<h3>Selected Publications</h3>
+		</div>
+		<div class="section_text" id="section_firstauthor"></div>
+		<div class="section_text" id="section_reviews"></div>
+		<div class="section_text" id="section_all"></div>
+
+		<p>This list is powered by my project,
+		<a href="http://entrezajax.appspot.com">EntrezAJAX</a>. You can
+		see the <a href="publicationList.js">JavaScript here</a> if
+		you want to do something similar on your web page.</p>
+
+		<h2>Pathogenomics Blog</h2>
+
+		<div id="blogposts"></div>
+		
+		<h2>The E. coli O104:H4 outbreak in Germany</h2>
+
+		<p>I was involved with the crowd-sourced analysis of genomics data from the Shiga-toxin producing <em>E. coli</em> O104:H4 outbreak in Germany. This outbreakt caused more than 4,000 cases of disease and 50 deaths. I performed an <a href="http://pathogenomics.bham.ac.uk/blog/2011/06/ehec-genome-assembly/">initial assembly</a> of data from the BGI on the 2nd of June 2011 which helped spark a flurry of <a href="https://github.com/ehec-outbreak-crowdsourced/BGI-data-analysis/wiki">crowd-sourced analysis</a>, documented on the Github Wiki. Recently, the BBSRC made a video about this project which can be viewed below.</p>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/ttMnQIE-P-s" frameborder="0" allowfullscreen></iframe>
+
+		<h2>Bioinformatics projects</h2>
+
+		<p>In my previous role, I was responsible for the maintenance and development of the comparative bacterial genomics database, <a href="http://xbase.ac.uk">xBASE</a>. Although funding for this project has ceased, I still continue to develop the high-throughput sequencing pipeline <a href="http://ng.xbase.ac.uk">xBASE-NG</a> to support our local sequencing efforts, as well as the rapid bacterial genome annotation service <a href="http://xbase.ac.uk/annotation/">xBASE Annotation</a>.</p>
+
+		<p>In collaboration with Lex Nederbragt, we are developing an open-source repository of sequencing and bioinformatics benchmarking datasets entitled <a href="http://seqbench.org">Seqbench</a>.
+
+		<p>I aim to publish accompanying Github repositories with manuscripts as an aid to extensible and reproducible research, please see <a href="https://github.com/nickloman">my Github page for details</a>.</p>
+		
+		<p>With James Hadfield, I built <a href="http://omicsmaps.com/">Omicsmaps.com</a>, a map of high-througput sequencing instruments.</p>
+
+		<h2>Contact</h2>
+
+		<p>
+		email: n [dot] j [dot] loman [at] bham [dot] ac [dot] uk
+		</p>
+
+		<p>Due to limited time, I would really rather not receive unsolicited phone calls.</p>
+
+		<a href="https://twitter.com/pathogenomenick" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @pathogenomenick</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+	</body>
+</html>
+
+
